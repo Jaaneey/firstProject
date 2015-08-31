@@ -1,0 +1,75 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+/* Navigation */
+nav {
+  background-color: #333;
+  opacity: .8;
+  min-height: 20px;
+  width:110%;
+  margin-left: -10px;
+  margin-top: -10px;
+  position: fixed;
+  display: inline;
+
+}
+
+nav ul{
+  padding-right: 100px;
+  float: right;
+}
+
+nav li {
+  list-style: none;
+  display: inline;
+  padding: 20px;
+
+}
+
+nav a {
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  
+}
+
+/* Page Elements */
+
+.backgroundImage {
+  width: 120%;
+  margin-left: -10%;
+
+}
+
+hr {
+  color: #333;
+  width: 85%;
+  position: center;
+  margin: 25px;
+  margin-left: 7.5%;
+}
+
+#introText {
+  margin: 10px 150px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/*Elements for the Tool */
+
+.questionBox {
+  background-color: #F7901E;
+  max-width: 500px;
+  min-height: 400px;
+  border-radius: 10%;
+  border: solid 1px white;
+  box-shadow: 0 0 0 5px #F7901E;
+  margin: 0 auto;
+ 
+}
+
+.formQuestion {
+  text-align: center;
+}

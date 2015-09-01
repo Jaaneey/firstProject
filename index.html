@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="styles.css" rel="stylesheet">
   <title>Savings Calculator</title>
 </head>
@@ -26,16 +27,206 @@
         <h1>Thinking about enrolling at Galvanize?</h1>
         <p>Use our cost-calculator to determine if now's the right time to take the leap into the<br> Full Stack Immersive Program</p></div>
       <hr>
-        
-        <div class="questionBox">
-          <div id="cityQuestion" class="formQuestion">
-            <h1>Housing</h1>
-          </div>
+ <!-- ************FIRST QUESTION BOX ***********-->       
+      <div class="questionBox">
+        <div id="programQuestion" class="formQuestion">
+            <h1>What do you want to study & Where? </h1>
+          
+          <form>
+              <select id="locationProgram"> 
+                <optgroup label="San Francisco">
+                  <option>Full Stack Immersive</option>
+                  <option>Data Science</option>
+                </optgroup>
+                
+                <optgroup label="Boulder">
+                  <option>Full Stack</option>
+                  <option>Data Science</option>
+                </optgroup> 
+              </select>
+              
+              <div>
+                <label for="userName">Your Name</label>
+                <input id="userName" type="text">
+              </div>
+
+              <div>
+                <label for="userEmail">Email Address</label>
+                <input id="userEmail" type="text">
+              </div>
+
+              <button id="schoolButton" class="qButt">Next</button>
+              
+            </form>
+            <i class="fa fa-graduation-cap fa-5x"></i>
+        </div>    
+      </div>
+
+ <!-- *************SECOND QUESTION BOX **********-->
+      <div class="questionBox">
+        <div id="housingQuestion" class="formQuestion">
+          <h1>The Housing Dilemma</h1>
+          
+          <form>
+            <div> 
+              <label for="hasHouse">I have housing!</label>
+              <input type="checkbox" id="hasHouse" value="hasHouse">
+            </div>
+
+            <div> 
+             <label for="needsHouse">I need to find local housing</label>
+             <input type="checkbox" id="needsHouse" value="needsHouse" checked>
+            </div>
+
+            <div>
+             <label for="rentEstimate">What's your monthly rent expense (rent+utilities)?</label>
+             <input type="text" id="rentEstimate">
+            </div>
+
+            
+              <h3>How close to Galvanize do you want to be?</h3>
+             <div> 
+                <input id="inCity" type="checkbox">
+                <label for="inCity">I want to be in CITY</label>
+              <br>
+                <input id="nearby" type="checkbox">
+                <label for="nearby">If the rent's more affordable, I'd live farther away.</label>
+              </div> 
+              
+              <h3>How much personal space do you need?</h3>
+              <div>
+                <input type="checkbox"><label> I'd prefer my own apartment</label>
+                <br>
+                <input type="checkbox"><label>I can share with roommates</label>
+                <br>
+                <input type="checkbox"><label>I'd sleep on a couch</label>
+              </div>
+          <button id="housingButton" class="qButt">Next</button>
+
+          </form>
+          <i class="fa fa-home fa-5x"></i>
+          <h2>$$ Flash</h2>
         </div>
-      
+      </div>
+  <!-- ************THIRD QUESTION BOX ***********-->
+      <div class="questionBox">
+        <div id="transportQuestion" class="formQuestion">
+          <h1>Transportation Situation</h1>
+          <form>
+            <div>
+              <input type="checkbox">
+              <label for="car">I'm bringing a car</label>
+            </div>
+            
+            <div>
+              <input type="checkbox">
+              <label for="publicTransit">I'm down for public transit</label>
+            </div>
+
+          <button id="transportButton" class="qButt">Next</button>
+          </form>  
+            
+
+          <i class="fa fa-car fa-5x"></i>
+          <h2>$$ Flash</h2>
+        </div>
+      </div>
+  <!-- ************FOURTH QUESTION BOX **********--> 
+      <div class="questionBox">
+        <div id="foodQuestion" class="formQuestion">
+          <h1>Food Budget</h1>
+          <form>
+            <div>
+              <input id="alot" type="checkbox">
+              <label for="alot">I'll grocery shop when I'm not coding.<br> Wait a minute, I'll always be coding. Guess I'll be eating out a bunch ($200+/week)</label>
+            </div>
+            <div>
+              <input id="average" type="checkbox">
+              <label for="average">I'll cook a bunch, but treat myself every so often ($75-$100/week)</label>
+            </div>
+            <div>
+              <input id="cheap" type="checkbox">
+              <label for="cheap">I'll scavenge leftovers from Galvanize Community Events or eat a lot of Top Ramen ($35/week)</label>
+            </div>
+            <div>
+              <input type="checkbox">
+              <label for="bogus">All these options are bogus. My Budget is: </label>
+              <input type="text" placeholder="$$ per WEEK">
+            </div>
+
+
+          <button id="foodButton" class="qButt">Next</button>
+          </form>  
+            
+
+          <i class="fa fa-cutlery fa-5x"></i>
+          <h2>$$ Flash</h2>
+        </div>
+      </div>
+  <!-- ************FIFTH QUESTION BOX ***********-->  
+      <div class="questionBox">
+        <div id="funQuestion" class="formQuestion">
+          <h1>Funny Money</h1>
+          <form>
+          <div>
+            <input type="checkbox">
+            <label>I will not be having any fun for the next six months ($0/week)</label>
+          </div>
+          
+          <div>
+            <input type="checkbox">
+            <label>I'll be making $75-$90k soon, let's start spending now! ($150/week)</label>
+          </div>
+          
+          <div>
+            <input type="checkbox">
+            <label>None of the above. My recreation budget is:</label> 
+            <input type="text" placeholder="$$ per WEEK">
+          </div>
+           
+          <button id="funButton" class="qButt">Next</button>  
+          </form>  
+            
+
+          <i class="fa fa-hand-spock-o fa-5x"></i>
+        </div>
+      </div>
+  <!-- ************SIXTH QUESTION BOX ***********-->
+      <div class="questionBox">
+        <div id="otherQuestion" class="formQuestion">
+          <h1>Additional Expenses</h1>
+          <p>We all have them. Take a moment to think about it. Health Insurance? Cell phone bill? Student loan payments?</p>
+          <form>
+          <div>
+            <label for="additionalCash">Any additional expenses you'll need to cover?</label>
+            <input type="text" placeholder="$$ per MONTH">
+          </div>
+          <div>
+            <label for="extras">Any one-time special occasion expenses?</label>
+            <input type="text" placeholder="$$ Total for whole program">
+          </div>
+
+          <button id="otherButton" class="qButt">Next</button>  
+          </form>  
+            
+          <i class="fa fa-money fa-5x"></i>
+        </div>
+      </div>
       </div>
     </div>
+    
+ <!-- ************Evil Answer BOX ***********-->
+    <div class="drEvil questionBox" hidden >
+     <iframe src="https://media.giphy.com/media/C4JpnmCDUzhIc/giphy.gif" width="450" height="200" frameBorder="0" borderRadius="10%" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/evil-mike-myers-dr-C4JpnmCDUzhIc">Dr. Evil comes to us via GIPHY</a></p>
+     <h1>ONE MILLION DOLLARS</h1>
+       <button id="evilButton" class="qButt">Just Kidding</button>
+     </div>
+
   </div>
+  
+
 </body>
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </html>

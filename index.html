@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:600, 300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="styles.css" rel="stylesheet">
   <title>Savings Calculator</title>
@@ -69,13 +69,13 @@
           
           <form>
             <div> 
-              <label for="hasHouse">I have housing!</label>
               <input type="checkbox" id="hasHouse" value="hasHouse">
+              <label for="hasHouse">I have housing!</label>
             </div>
 
             <div> 
-             <label for="needsHouse">I need to find local housing</label>
              <input type="checkbox" id="needsHouse" value="needsHouse" checked>
+             <label for="needsHouse">I need to find local housing</label>
             </div>
 
             <div>
@@ -138,15 +138,15 @@
           <form>
             <div>
               <input id="alot" type="checkbox">
-              <label for="alot">I'll grocery shop when I'm not coding.<br> Wait a minute, I'll always be coding. Guess I'll be eating out a bunch ($200+/week)</label>
+              <label for="alot">I'll grocery shop when I'm not coding.<br> Wait a minute, I'll always be coding. Guess I'll be eating out a bunch <strong>($200+/week)</strong></label>
             </div>
             <div>
               <input id="average" type="checkbox">
-              <label for="average">I'll cook a bunch, but treat myself every so often ($75-$100/week)</label>
+              <label for="average">I'll cook a bunch, but treat myself every so often <strong> ($75-$100/week)</strong></label>
             </div>
             <div>
               <input id="cheap" type="checkbox">
-              <label for="cheap">I'll scavenge leftovers from Galvanize Community Events or eat a lot of Top Ramen ($35/week)</label>
+              <label for="cheap">I'll scavenge leftovers from Galvanize Community Events or eat a lot of Top Ramen <strong> ($35/week)</strong></label>
             </div>
             <div>
               <input type="checkbox">
@@ -170,12 +170,12 @@
           <form>
           <div>
             <input type="checkbox">
-            <label>I will not be having any fun for the next six months ($0/week)</label>
+            <label>I will not be having any fun for the next six months <strong>($0/week)</strong></label>
           </div>
           
           <div>
             <input type="checkbox">
-            <label>I'll be making $75-$90k soon, let's start spending now! ($150/week)</label>
+            <label>I'll be making $75-$90k soon, let's start spending now! <strong>($150/week)</strong></label>
           </div>
           
           <div>
@@ -189,6 +189,7 @@
             
 
           <i class="fa fa-hand-spock-o fa-5x"></i>
+          <h2>$$ Flash</h2>
         </div>
       </div>
   <!-- ************SIXTH QUESTION BOX ***********-->
@@ -201,7 +202,7 @@
             <label for="additionalCash">Any additional expenses you'll need to cover?</label>
             <input type="text" placeholder="$$ per MONTH">
           </div>
-          <div>
+          <div class="extras">
             <label for="extras">Any one-time special occasion expenses?</label>
             <input type="text" placeholder="$$ Total for whole program">
           </div>
@@ -223,6 +224,100 @@
      </div>
 
   </div>
+
+ <!-- ************Galvanize Promo Moment ***********-->
+  <div class="questionBox">
+     <div id="promoBox" class="formQuestion">
+     <h1>In All Seriousness</h1>
+     <p>The total we may show you will shock you. 
+     <br>
+     6months of living expenses adds up. 
+     <br>
+     Something Something. It's better to know what your getting into. Reduce financial stress during program. Big payoff in the end. All worth it. Promo stuff.</p>
+    <form>
+       <button id="promoButton" class="qButt">On to My Results!</button>
+    </form>
+    <i class="fa fa-fire-extinguisher fa-5x"></i> 
+    </div>
+
+  </div>
+
+
+
+
+
+
+<!-- ************Answer BOX ***********-->
+
+      <div class="questionBox">
+        <div id="resultsBox" class="formQuestion">
+          <h1>The Results are IN</h1>
+          <p></p>
+          <form>
+          <div>
+            <label>Here is the total amount based on your input:</label>
+            <input type="text" placeholder="$$ total cost">
+          </div>
+          <div>
+            <label>If you're planning to offset the cost with loans<br> enter them here:</label><br>
+            <input type="text" placeholder="Subtract Loan Amount">
+          </div>
+          <div>
+           <label for="grandTotal">Your Grand Total:<br> $$ You'll need to make it through the program:</label><br>
+            <input type="text">
+          </div>
+
+          <button id="finalButton" class="qButt">Want to adjust the numbers?</button> 
+          </form>  
+            
+          <i class="fa fa-money fa-5x"></i>
+        </div>
+      </div>
+
+<!-- ************Numbers BOX ***********-->
+
+      <div class="questionBox">
+        <div id="resultsBox" class="formQuestion">
+          <h1>Adjust the Numbers</h1>
+          <p></p>
+          <form>
+          <div>
+            <label>Housing<label>
+            <input type="text">
+          </div>
+          <div>
+            <label>Transportation</label>
+            <input type="text">
+          </div>
+          <div>
+            <label>Food</label>
+            <input type="text">
+          </div>
+          <div>
+            <label>Fun</label>
+            <input type="text">
+          </div>
+          <div>
+            <label>Other</label>
+            <input type="text">
+          </div>
+          <div>
+            <label><strong>Total</strong></label>
+            <input type="text">
+          </div>
+
+          <button id="finalButton" class="qButt">Click here to start over</button> 
+          </form>  
+            
+          <i class="fa fa-thumbs-up fa-5x"></i>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+
   
 
 </body>

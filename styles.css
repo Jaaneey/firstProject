@@ -3,17 +3,23 @@ body {
   width: 100%;
 }
 
+h1, h2, h3 {
+  font-weight: lighter;
+}
+
 
 /* Navigation */
 nav {
   background-color: #333;
   opacity: .8;
   min-height: 20px;
-  width:110%;
+  width:100%;
+  padding-left: 10px;
   margin-left: -10px;
   margin-top: -10px;
   position: fixed;
   display: inline;
+  z-index: 1000;
 
 }
 
@@ -140,6 +146,24 @@ input[type=text]:not(#userName):not(#userEmail){
   position: relative;
   left: 25px;
 }
+
+/* Specific Fixes */
+
+#locationProgram {
+  position: relative;
+  left: 140px;
+  width: 265px;
+
+}
+
+.extras label{
+  position:relative;
+  top: 5px;
+  left: 20px;
+}
+
+
+
 
 
 /* Dr. Evil */

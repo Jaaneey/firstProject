@@ -90,7 +90,7 @@
                 <label for="inCity">I want to be in CITY</label>
               <br>
                 <input id="nearby" type="checkbox">
-                <label for="nearby">If the rent's more affordable, I'd live farther away.</label>
+                <label class="longLabel" for="nearby">If the rent's more affordable, I'd live farther away.</label>
               </div> 
               
               <h3>How much personal space do you need?</h3>
@@ -138,16 +138,17 @@
           <form>
             <div>
               <input id="alot" type="checkbox">
-              <label for="alot">I'll grocery shop when I'm not coding.<br> Wait a minute, I'll always be coding. Guess I'll be eating out a bunch <strong>($200+/week)</strong></label>
+              <label class="longLabel" for="alot">I'll grocery shop when I'm not coding.<br> Wait a minute, I'll always be coding. Guess I'll be eating out a bunch <strong>($200+/week)</strong></label>
             </div>
             <div>
               <input id="average" type="checkbox">
-              <label for="average">I'll cook a bunch, but treat myself every so often <strong> ($75-$100/week)</strong></label>
+              <label class="longLabel" for="average">I'll cook a bunch, but treat myself every so often <strong> ($75-$100/week)</strong></label>
             </div>
             <div>
               <input id="cheap" type="checkbox">
-              <label for="cheap">I'll scavenge leftovers from Galvanize Community Events or eat a lot of Top Ramen <strong> ($35/week)</strong></label>
+              <label class="longLabel" for="cheap">I'll scavenge leftovers from Galvanize Community Events or eat a lot of Top Ramen <strong> ($35/week)</strong></label>
             </div>
+            <br>
             <div>
               <input type="checkbox">
               <label for="bogus">All these options are bogus. My Budget is: </label>
@@ -170,14 +171,14 @@
           <form>
           <div>
             <input type="checkbox">
-            <label>I will not be having any fun for the next six months <strong>($0/week)</strong></label>
+            <label class="longLabel">I will not be having any fun for the next six months <strong>($0/week)</strong></label>
           </div>
           
           <div>
             <input type="checkbox">
-            <label>I'll be making $75-$90k soon, let's start spending now! <strong>($150/week)</strong></label>
+            <label class="longLabel">I'll be making $75-$90k soon, let's start spending now! <strong>($150/week)</strong></label>
           </div>
-          
+          <br>
           <div>
             <input type="checkbox">
             <label>None of the above. My recreation budget is:</label> 
@@ -252,7 +253,7 @@
       <div class="questionBox">
         <div id="resultsBox" class="formQuestion">
           <h1>The Results are IN</h1>
-          <p></p>
+          
           <form>
           <div>
             <label>Here is the total amount based on your input:</label>
@@ -263,11 +264,11 @@
             <input type="text" placeholder="Subtract Loan Amount">
           </div>
           <div>
-           <label for="grandTotal">Your Grand Total:<br> $$ You'll need to make it through the program:</label><br>
+           <label for="grandTotal"><strong>Your Grand Total:</strong><br> $$ You'll need to make it through the program:</label><br>
             <input type="text">
           </div>
 
-          <button id="finalButton" class="qButt">Want to adjust the numbers?</button> 
+          <button id="finalButton" class="qButt">Want to adjust your expenses?</button> 
           </form>  
             
           <i class="fa fa-money fa-5x"></i>
@@ -277,33 +278,33 @@
 <!-- ************Numbers BOX ***********-->
 
       <div class="questionBox">
-        <div id="resultsBox" class="formQuestion">
+        <div id="numbersBox" class="formQuestion">
           <h1>Adjust the Numbers</h1>
           <p></p>
           <form>
           <div>
-            <label>Housing<label>
-            <input type="text">
+            <label>Housing</label>
+            <input class="numbersBoxInputs" type="text">
           </div>
           <div>
             <label>Transportation</label>
-            <input type="text">
+            <input class="numbersBoxInputs" type="text">
           </div>
           <div>
             <label>Food</label>
-            <input type="text">
+            <input class="numbersBoxInputs" type="text">
           </div>
           <div>
             <label>Fun</label>
-            <input type="text">
+            <input class="numbersBoxInputs" type="text">
           </div>
           <div>
             <label>Other</label>
-            <input type="text">
+            <input class="numbersBoxInputs" type="text">
           </div>
           <div>
             <label><strong>Total</strong></label>
-            <input type="text">
+            <input class="numbersBoxInputs" type="text">
           </div>
 
           <button id="finalButton" class="qButt">Click here to start over</button> 

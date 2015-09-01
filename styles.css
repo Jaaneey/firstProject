@@ -107,6 +107,20 @@ form {
   left: 7.5%;
 }
 
+.longLabel {
+    display: inline-block;
+    padding-right: 10px;
+    max-width: 390px;
+    position:relative;
+    top: 15px;
+    /*
+    white-space: nowrap;
+    text-indent: 35px;
+    */
+}
+
+
+
 
 .qButt {
   color: white;
@@ -136,11 +150,12 @@ input[type=text] {
   -webkit-appearance: none;
 }
 
-input[type=text]:not(#userName):not(#userEmail){
+input[type=text]:not(#userName):not(#userEmail):not(.numbersBoxInputs){
   position:relative;
   left: 75px;
   margin-top: 15px;
 }
+
 
 #userName {
   position: relative;
@@ -162,8 +177,24 @@ input[type=text]:not(#userName):not(#userEmail){
   left: 20px;
 }
 
+#resultsBox label {
+  display:inline-block;
+  text-align: center;
+}
 
+#numbersBox h1 {
+  margin-bottom: 50px;
+}
 
+#numbersBox div {
+  margin-bottom: 25px;
+}
+
+.numbersBoxInputs {
+  position: absolute;
+  margin-left: 175px;
+  margin-top: -4px;
+}
 
 
 /* Dr. Evil */

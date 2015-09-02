@@ -179,7 +179,7 @@ input[type=text]:not(#userName):not(#userEmail):not(.numbersBoxInputs){
 
 /* Specific Fixes */
 
-#locationProgram {
+select {
   position: relative;
   left: 140px;
   width: 265px;

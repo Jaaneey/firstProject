@@ -134,11 +134,26 @@ form {
   left: 150px;
 }
 
-.qButt:hover, input[type=text] {
+.bButt {
+  width: 200px;
+  position: absolute;
+  margin-left: 65%;
+  border-radius: 15px 15px;
+ 
+}
+
+.qButt:hover, input[type=text], .bButt {
   color: #F7901E;
   background-color: white;
   border: solid 2px #F7901E;
   box-shadow: 0 0 0 5px white;
+}
+
+.bButt:hover {
+  color: white;
+  background-color: #333;
+  border: solid 2px #333;
+  box-shadow: 0 0 0 5px #F7901E;
 }
 
 input[type=text] {
@@ -231,3 +246,5 @@ div .drEvil  {
   top: 80px;
   left:525px;
 }
+
+

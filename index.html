@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Raleway:600, 300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="styles.css" rel="stylesheet">
@@ -63,44 +64,49 @@
       </div>
 
  <!-- *************SECOND QUESTION BOX **********-->
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="housingQuestion" class="formQuestion">
           <h1>The Housing Dilemma</h1>
           
           <form>
+            <div id="gotHouse">  
             <div> 
-              <input type="checkbox" id="hasHouse" value="hasHouse">
+              <input name="housing" type="radio" id="hasHouse"  value="hasHouse" checked>
               <label for="hasHouse">I have housing!</label>
             </div>
-
-            <div> 
-             <input type="checkbox" id="needsHouse" value="needsHouse" checked>
-             <label for="needsHouse">I need to find local housing</label>
-            </div>
-
+            <br>
             <div>
              <label for="rentEstimate">What's your monthly rent expense (rent+utilities)?</label>
              <input type="text" id="rentEstimate">
             </div>
-
+          <hr>
+          </div>  
             
+            <div> 
+             <input name="housing" type="radio" id="needsHouse" value="needsHouse">
+             <label for="needsHouse" class="longLabel">I don't have a spot yet. I'll need to find local housing</label>
+            </div>
+
+            <div id="wantsHouse" hidden>
+            <hr>
               <h3>How close to Galvanize do you want to be?</h3>
              <div> 
-                <input id="inCity" type="checkbox">
+                <input id="inCity" type="radio">
                 <label for="inCity">I want to be in CITY</label>
               <br>
-                <input id="nearby" type="checkbox">
+                <input id="nearby" type="radio">
                 <label class="longLabel" for="nearby">If the rent's more affordable, I'd live farther away.</label>
               </div> 
               
               <h3>How much personal space do you need?</h3>
               <div>
-                <input type="checkbox"><label> I'd prefer my own apartment</label>
+                <input type="radio"><label> I'd prefer my own apartment</label>
                 <br>
-                <input type="checkbox"><label>I can share with roommates</label>
+                <input type="radio"><label>I can share with roommates</label>
                 <br>
-                <input type="checkbox"><label>I'd sleep on a couch</label>
+                <input type="radio"><label>I'd sleep on a couch</label>
               </div>
+            </div>
           <button id="housingButton" class="qButt">Next</button>
 
           </form>
@@ -109,17 +115,17 @@
         </div>
       </div>
   <!-- ************THIRD QUESTION BOX ***********-->
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="transportQuestion" class="formQuestion">
           <h1>Transportation Situation</h1>
           <form>
             <div>
-              <input type="checkbox">
+              <input type="radio">
               <label for="car">I'm bringing a car</label>
             </div>
             
             <div>
-              <input type="checkbox">
+              <input type="radio">
               <label for="publicTransit">I'm down for public transit</label>
             </div>
 
@@ -132,25 +138,25 @@
         </div>
       </div>
   <!-- ************FOURTH QUESTION BOX **********--> 
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="foodQuestion" class="formQuestion">
           <h1>Food Budget</h1>
           <form>
             <div>
-              <input id="alot" type="checkbox">
+              <input id="alot" type="radio">
               <label class="longLabel" for="alot">I'll grocery shop when I'm not coding.<br> Wait a minute, I'll always be coding. Guess I'll be eating out a bunch <strong>($200+/week)</strong></label>
             </div>
             <div>
-              <input id="average" type="checkbox">
+              <input id="average" type="radio">
               <label class="longLabel" for="average">I'll cook a bunch, but treat myself every so often <strong> ($75-$100/week)</strong></label>
             </div>
             <div>
-              <input id="cheap" type="checkbox">
+              <input id="cheap" type="radio">
               <label class="longLabel" for="cheap">I'll scavenge leftovers from Galvanize Community Events or eat a lot of Top Ramen <strong> ($35/week)</strong></label>
             </div>
             <br>
             <div>
-              <input type="checkbox">
+              <input type="radio">
               <label for="bogus">All these options are bogus. My Budget is: </label>
               <input type="text" placeholder="$$ per WEEK">
             </div>
@@ -165,22 +171,22 @@
         </div>
       </div>
   <!-- ************FIFTH QUESTION BOX ***********-->  
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="funQuestion" class="formQuestion">
           <h1>Funny Money</h1>
           <form>
           <div>
-            <input type="checkbox">
+            <input type="radio">
             <label class="longLabel">I will not be having any fun for the next six months <strong>($0/week)</strong></label>
           </div>
           
           <div>
-            <input type="checkbox">
+            <input type="radio">
             <label class="longLabel">I'll be making $75-$90k soon, let's start spending now! <strong>($150/week)</strong></label>
           </div>
           <br>
           <div>
-            <input type="checkbox">
+            <input type="radio">
             <label>None of the above. My recreation budget is:</label> 
             <input type="text" placeholder="$$ per WEEK">
           </div>
@@ -194,7 +200,7 @@
         </div>
       </div>
   <!-- ************SIXTH QUESTION BOX ***********-->
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="otherQuestion" class="formQuestion">
           <h1>Additional Expenses</h1>
           <p>We all have them. Take a moment to think about it. Health Insurance? Cell phone bill? Student loan payments?</p>
@@ -227,7 +233,7 @@
   </div>
 
  <!-- ************Galvanize Promo Moment ***********-->
-  <div class="questionBox">
+  <div class="questionBox"hidden>
      <div id="promoBox" class="formQuestion">
      <h1>In All Seriousness</h1>
      <p>The total we may show you will shock you. 
@@ -250,7 +256,7 @@
 
 <!-- ************Answer BOX ***********-->
 
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="resultsBox" class="formQuestion">
           <h1>The Results are IN</h1>
           
@@ -277,7 +283,7 @@
 
 <!-- ************Numbers BOX ***********-->
 
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="numbersBox" class="formQuestion">
           <h1>Adjust the Numbers</h1>
           <p></p>
@@ -313,16 +319,17 @@
           <i class="fa fa-thumbs-up fa-5x"></i>
         </div>
       </div>
-
+<!-- ************Back to Galvanize Button ***-->
+      <button id="backButton" class="bButt">Click here head back to Galvanize</button> 
 
   </div>
 </div>
-
+</div> 
 
   
 
 </body>
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
 </html>

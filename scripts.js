@@ -1,5 +1,6 @@
 var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost, userHousing, userFood, userFun, userTransport;
 
+
 //Write these functions:
 
 function reset(){
@@ -67,10 +68,12 @@ function runPage(pageNumber){
     case 6: // Evil
       break;
     case 7: // Promo Page
-      console.log("yo");
+      resultsSetup();
       break;
     case 8: // Results
       adjusterSetUp();
+      adjusterTotal();
+      sliderAdjust();
       break;
   }
 
@@ -174,14 +177,14 @@ function transportVariable(){
 
   if ($("#publicTransit").is(":checked")){
     userTransport = "publicTransit";
-  } else {
+  } else if ($("#car").is(":checked")) {
       if($("#parkDaily").is(":checked")){
         userTransport = "parkDaily";
       }
       else { 
         userTransport = "parkMonthly";
       }
-  }
+  } else {userTransport = 0;}
 }
 
 //Page 3: Food Budget ********
@@ -204,8 +207,46 @@ function funVariable(){
   }
 }
 
-
+// Results Page
+function resultsSetup() {
+$("#totalExpenses").val("$" + user.firstTotal);
+$("#grandTotal").val("$" + user.grandTotal);
+}
 //LAST PAGE Adjuster Page
+
+var $allOutputs = $("#numbersBox output");
+var $allInputs = $("#numbersBox input");
+
+function sliderAdjust(){
+ $.each($allInputs, function(index,element){
+    $(element).on("change", adjusterTotal);
+});
+}
+
+function adjusterTotal(){
+  var adjustedTotal=0;
+  $.each($allOutputs, function(index,element){ 
+    if(element.id === "loanEstimator"){
+      adjustedTotal -= parseInt($(element).text().split("$")[1]);
+    } 
+    else if(element.id==="specialEstimator"){
+      adjustedTotal += parseInt($(element).text().split("$")[1]);
+    }
+    else if(element.id === "rentEstimator"|| element.id === "otherEstimator"){
+      adjustedTotal += parseInt($(element).text().split("$")[1])* programLengthM;
+    }
+    else {
+      adjustedTotal += parseInt($(element).text().split("$")[1])* 26;
+    }
+  });
+  $("#adjustedTotal").val("$" + adjustedTotal);
+
+}
+
+
+
+
+
 
 function adjusterSetUp(){
   sliderFunction("#foodEstimate", "#foodEstimator");

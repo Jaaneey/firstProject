@@ -252,7 +252,7 @@
     <div class="drEvil questionBox" hidden>
      <iframe src="https://media.giphy.com/media/C4JpnmCDUzhIc/giphy.gif" width="450" height="200" frameBorder="0" borderRadius="10%" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/evil-mike-myers-dr-C4JpnmCDUzhIc">Dr. Evil comes to us via GIPHY</a></p>
      <br>
-     <h1>IT'LL COST YOU <br> ONE MILLION DOLLARS</h1>
+     <h1>GALVANIZE WILL COST YOU <br> ONE MILLION DOLLARS</h1>
      <hr>
        <button id="evilButton" class="qButt">Just Kidding</button>
      </div>
@@ -290,8 +290,8 @@
           
           <form>
           <div>
-            <label >Here is the total amount based on your input:<br>(not including tuition)</label>
-            <input type="text" placeholder="$$ Total Expenses">
+            <label for="totalExpenses">Here is the total amount based on your input:<br>(not including tuition)</label>
+            <input id="totalExpenses" type="text" placeholder="$$ Total Expenses">
           </div>
           <div>
             <label for="loanAmount">If you're planning to offset the cost with loans<br> enter them here:</label><br>
@@ -326,8 +326,8 @@
           </div>
           <div>
             <label>Transportation</label>
-            <input type="range" min="0" max="4000" value="1500" id="travelEstimate" step="100">
-            <output for="travelEstimate" id="travelEstimator">$1500</output>
+            <input type="range" min="0" max="200" value="100" id="travelEstimate" step="20">
+            <output for="travelEstimate" id="travelEstimator">$200</output>
             <label>(weekly)</label>
           </div>
           <div>
@@ -363,8 +363,8 @@
           </div>
 
           <div>
-            <label><strong>Total</strong></label>
-            <input class="numbersBoxInputs" type="text">
+            <label for="adjustedTotal"><strong>Total</strong></label>
+            <input id="adjustedTotal" class="numbersBoxInputs" type="text">
           </div>
 
           <button id="finalButton" class="qButt">Click here to start over</button> 

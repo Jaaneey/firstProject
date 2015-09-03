@@ -75,6 +75,10 @@ hr {
   right: 160px;
 }
 
+.fa-arrow-circle-left:hover{
+  color: #333;
+}
+
 .fa-5x {
   position:relative;
   right: 17.5px;
@@ -194,6 +198,15 @@ input[type=text]:not(#userName):not(#userEmail):not(.numbersBoxInputs){
   left: 25px;
 }
 
+hr:not(.drEvil){
+  border: 2px dashed #333;
+}
+
+#introText hr {
+  border: 1px solid gray;
+}
+
+
 /* Specific Fixes */
 
 input[name=parking]{
@@ -242,6 +255,11 @@ select {
 .fa-graduation-cap {
   position:relative;
   left:2.5px;
+}
+
+#introText p {
+  width: 600px;
+  margin: 0 auto;
 }
 
 /* Dr. Evil */

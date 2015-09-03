@@ -1,6 +1,6 @@
-var arrayOfButtons, arrayOfBoxes, arrayOfInputs, user;
+var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user;
 
-
+//Write these functions:
 function reset(){
   console.log("let's put things back");
 }
@@ -16,12 +16,6 @@ function runPage(pageNumber){
   }
 
 }
-
-//Write these functions:
-
-
-
-
 
  function sliderValue(inputId, outputId){
  $(inputId).on("change", function(){
@@ -52,6 +46,7 @@ function Person(name, email, city, course, housing, transport,food, fun, additio
 
 
 arrayOfButtons = $(".qButt");
+arrayOfArrows = $(".fa-2x");
 arrayOfBoxes = $(".questionBox");
 arrayOfInputs = $("input");
 user= new Person();
@@ -77,6 +72,15 @@ $('label[for=inCity').text("I want to be in the city of "+ user.city);
 
 //page 2 Transport
 
+$('input#car').on('click',function(){
+  $('[data-id=parking]').fadeIn("slow");
+});
+
+$('input#publicTransit').on('click', function(){
+  $("[data-id=parking]").fadeOut("slow");
+});
+ 
+
 //Adjuster Page
 sliderValue("#foodEstimate", "#foodEstimator");
 sliderValue("#funEstimate", "#funEstimator");
@@ -87,11 +91,12 @@ sliderValue("#specialEstimate","#specialEstimator");
 sliderValue("#loanEstimate", "#loanEstimator");
 
 
+//ON TO NEXT PAGE
 $.each(arrayOfButtons, function(index, button){
       $(button).on("click", function(event){
         event.preventDefault();
         /////WORK ON THIS FUNCTION///
-        saveData();
+        //saveData();
         arrayOfBoxes.eq(index).fadeOut("slow", function(){
 
           if(index !== 9){
@@ -104,6 +109,17 @@ $.each(arrayOfButtons, function(index, button){
         });
 
 });
+
+//BACK TO PREVIOUS PAGE
+$.each(arrayOfArrows, function(index,arrow){
+    $(arrow).on("click", function(event){
+        /////WORK ON THIS FUNCTION///
+        //saveData();
+        arrayOfBoxes.eq(index+1).fadeOut("slow", function(){
+           arrayOfBoxes.eq(index).fadeIn();
+        });
+});
+
 
 
 
@@ -129,5 +145,6 @@ function saveData(){
 
 
 
+});
 });
 });

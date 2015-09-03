@@ -26,8 +26,10 @@
       
       <div id="introText">
         <h1>Thinking about enrolling at Galvanize?</h1>
-        <p>Use our cost-calculator to determine if now's the right time to take the leap into the<br> Full Stack Immersive Program</p></div>
-      <hr>
+        <p>Use our cost-calculator to determine if now's the right time to take the leap into one of our<br> Immersive Programs</p>
+        <hr>
+        </div>
+      
  <!-- ************FIRST QUESTION BOX ***********-->       
       <div class="questionBox">
         <div id="programQuestion" class="formQuestion">
@@ -74,7 +76,7 @@
       </div>
 
  <!-- *************SECOND QUESTION BOX **********-->
-      <div class="questionBox" >
+      <div class="questionBox" hidden>
         <div id="housingQuestion" class="formQuestion">
           <h1>The Housing Dilemma</h1>
           
@@ -125,7 +127,7 @@
         </div>
       </div>
   <!-- ************THIRD QUESTION BOX ***********-->
-      <div class="questionBox" >
+      <div class="questionBox" hidden>
         <div id="transportQuestion" class="formQuestion">
           <h1>Transportation Situation</h1>
           <form>
@@ -134,11 +136,11 @@
               <label for="car">I'll commute by car</label>
             </div>
             
-            <div>
+            <div data-id="parking" hidden>
               <input id="parkDaily" name="parking"type="radio">
               <label for="parkDaily" class="parking">I'll park it daily</label>
             </div>
-            <div>
+            <div data-id="parking" hidden>
               <input id="parkMonthly" name="parking" type="radio">
               <label class="longLabel parking" for="parkMonthly">I'll buy a monthly parking spot near galvanize</label>
             </div>
@@ -157,7 +159,7 @@
         </div>
       </div>
   <!-- ************FOURTH QUESTION BOX **********--> 
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="foodQuestion" class="formQuestion">
           <h1>Food Budget</h1>
           <form>
@@ -193,7 +195,7 @@
         </div>
       </div>
   <!-- ************FIFTH QUESTION BOX ***********-->  
-      <div class="questionBox" >
+      <div class="questionBox" hidden>
         <div id="funQuestion" class="formQuestion">
           <h1>Funny Money</h1>
           <form>
@@ -247,8 +249,9 @@
     </div>
     
  <!-- ************Evil Answer BOX ***********-->
-    <div class="drEvil questionBox" >
+    <div class="drEvil questionBox" hidden>
      <iframe src="https://media.giphy.com/media/C4JpnmCDUzhIc/giphy.gif" width="450" height="200" frameBorder="0" borderRadius="10%" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/evil-mike-myers-dr-C4JpnmCDUzhIc">Dr. Evil comes to us via GIPHY</a></p>
+     <br>
      <h1>IT'LL COST YOU <br> ONE MILLION DOLLARS</h1>
      <hr>
        <button id="evilButton" class="qButt">Just Kidding</button>
@@ -257,7 +260,7 @@
   </div>
 
  <!-- ************Galvanize Promo Moment ***********-->
-  <div class="questionBox">
+  <div class="questionBox" hidden>
      <div id="promoBox" class="formQuestion">
      <h1>In All Seriousness</h1>
      <p>The total we may show you will shock you. 
@@ -281,7 +284,7 @@
 
 <!-- ************Answer BOX ***********-->
 
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="resultsBox" class="formQuestion">
           <h1>The Results are IN</h1>
           
@@ -308,7 +311,7 @@
 
 <!-- ************Numbers BOX ***********-->
 
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="numbersBox" class="formQuestion">
           <h1>Adjust the Numbers</h1>
           <p></p>

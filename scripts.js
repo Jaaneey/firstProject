@@ -1,10 +1,10 @@
 var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost, userHousing, userFood, userFun, userTransport;
 
 //Write these functions:
+
 function reset(){
   console.log("let's put things back");
 }
-
 
 function sliderFunction(inputId, outputId){
  $(inputId).on("change", function(){
@@ -46,11 +46,31 @@ function Person(name, email, city, course, tuition, housing, transport,food, fun
 
 function runPage(pageNumber){
   switch(pageNumber){
-    case 0:
+    case 0: // Intro Page
       housingPageSetUp();
       break;
-    case 1:
+    case 1: // Housing Page
       housingVariable();
+      transportSetUp ();
+      break;
+    case 2: // Transportation Page
+      transportVariable();
+      break;
+    case 3: // Food Page
+      foodVariable();
+      break;
+    case 4: // Fun Budget
+      funVariable();
+      break;
+    case 5: // Additional
+      break;
+    case 6: // Evil
+      break;
+    case 7: // Promo Page
+      console.log("yo");
+      break;
+    case 8: // Results
+      adjusterSetUp();
       break;
   }
 
@@ -72,15 +92,6 @@ function saveData(){
   user.loan = parseInt($("#loanAmount").val(),10) || 0;
   user.grandTotal = tuitionCost + user.firstTotal - user.loan;
 
-  sliderValue("#rentEstimate","#rentEstimator", user.housing);
-  sliderValue("#foodEstimate", "#foodEstimator", user.food);
-  sliderValue("#funEstimate", "#funEstimator", user.fun);
-  sliderValue("#otherEstimate","#otherEstimator", user.additional);
-  sliderValue("#travelEstimate", "#travelEstimator", user.transport);
-  sliderValue("#specialEstimate","#specialEstimator", user.special);
-  sliderValue("#loanEstimate", "#loanEstimator", user.loan);
-
-
 }
 
 //STARTING OUT
@@ -93,14 +104,9 @@ user= new Person();
 saveData();
  
 
-
-// = parseInt($("#foodGuess").val(),10) || 0;
-// = parseInt($("#customFunAmount").val(),10)|| 0;
-
-
 //page0: INTRO
 
-//page1: HOUSING
+//page1: HOUSING********************
 
 function housingPageSetUp(){
 
@@ -151,43 +157,84 @@ function housingVariable(){
 }
 
 
+//********page 2 Transport**********
+
+function transportSetUp (){
+  $('input#car').on('click',function(){
+    $('[data-id=parking]').fadeIn("slow");
+  });
+
+  $('input#publicTransit').on('click', function(){
+    $("[data-id=parking]").fadeOut("slow");
+  });
+} 
+
+//Transport Variable 
+function transportVariable(){
+
+  if ($("#publicTransit").is(":checked")){
+    userTransport = "publicTransit";
+  } else {
+      if($("#parkDaily").is(":checked")){
+        userTransport = "parkDaily";
+      }
+      else { 
+        userTransport = "parkMonthly";
+      }
+  }
+}
+
+//Page 3: Food Budget ********
+function foodVariable() {
+  if ($("#bogus").is(":checked")){
+    userFood = parseInt($("#foodGuess").val(),10);
+  } else {
+    userFood = parseInt($("input[name=foodMoney]:checked").val(),10);
+  }
+}
+
+// Page 4: Fun *******
+
+function funVariable(){ 
+  if ($("#customFun").is(":checked")){
+    userFun = parseInt($("#customFunAmount").val(),10);
+
+  } else {
+    userFun = parseInt($("input[name=funnyMoney]:checked").val(),10);
+  }
+}
 
 
+//LAST PAGE Adjuster Page
 
+function adjusterSetUp(){
+  sliderFunction("#foodEstimate", "#foodEstimator");
+  sliderFunction("#funEstimate", "#funEstimator");
+  sliderFunction("#rentEstimate","#rentEstimator");
+  sliderFunction("#otherEstimate","#otherEstimator");
+  sliderFunction("#travelEstimate", "#travelEstimator");
+  sliderFunction("#specialEstimate","#specialEstimator");
+  sliderFunction("#loanEstimate", "#loanEstimator");
 
+  sliderValue("#rentEstimate","#rentEstimator", user.housing);
+  sliderValue("#foodEstimate", "#foodEstimator", user.food);
+  sliderValue("#funEstimate", "#funEstimator", user.fun);
+  sliderValue("#otherEstimate","#otherEstimator", user.additional);
+  sliderValue("#travelEstimate", "#travelEstimator", user.transport);
+  sliderValue("#specialEstimate","#specialEstimator", user.special);
+  sliderValue("#loanEstimate", "#loanEstimator", user.loan);
 
-//if ($("#hasHouse").is(":checked")){
-//  userHousing = parseInt($('#rentGuess').val(),10);
-//}
-
-//page 2 Transport
-
-$('input#car').on('click',function(){
-  $('[data-id=parking]').fadeIn("slow");
-});
-
-$('input#publicTransit').on('click', function(){
-  $("[data-id=parking]").fadeOut("slow");
-});
- 
-
-//Adjuster Page
-sliderFunction("#foodEstimate", "#foodEstimator");
-sliderFunction("#funEstimate", "#funEstimator");
-sliderFunction("#rentEstimate","#rentEstimator");
-sliderFunction("#otherEstimate","#otherEstimator");
-sliderFunction("#travelEstimate", "#travelEstimator");
-sliderFunction("#specialEstimate","#specialEstimator");
-sliderFunction("#loanEstimate", "#loanEstimator");
-
+}
 
 //ON TO NEXT PAGE
 $.each(arrayOfButtons, function(index, button){
       $(button).on("click", function(event){
         event.preventDefault();
         /////WORK ON THIS FUNCTION///
-        runPage(index);
         saveData();
+        runPage(index);
+        
+        
         arrayOfBoxes.eq(index).fadeOut("slow", function(){
 
           if(index !== 9){

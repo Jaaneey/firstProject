@@ -41,21 +41,22 @@
 
               <select id="locationProgram"> 
                 
-                  <option>Boulder</option>
+                  <option>Denver</option>
                   <option>San Francisco</option>
-                  <option>Fort Colins</option>
-                  <option>Something</option>
+                  <option>Fort Collins</option>
+                  <option>Boulder</option>
+                  <option>Seattle</option>
                 </optgroup> 
               </select>
 
               <select id="programType"> 
                   <option>Full Stack Immersive</option>
-                  <option>Data Science</option>
+                  <option disabled>Data Science</option>
+                   <option disabled>Data Engineering</option>
                 </optgroup>
                 
                 <optgroup label="Master's Degree">
-                  <option>Something Something</option>
-                  <option>Data Science</option>
+                  <option disabled>Data Science</option>
                 </optgroup> 
               </select>
 
@@ -67,6 +68,7 @@
               <button id="schoolButton" class="qButt">Next</button>
               
             </form>
+            
             <i class="fa fa-graduation-cap fa-5x"></i>
         </div>    
       </div>
@@ -85,11 +87,10 @@
     
             <div id="rentQuestion" hidden>
              <label for="rentEstimate">What's your monthly rent expense (rent+utilities)?</label>
-            <input type="range" min="0" max="4000" value="1500" id="rentEstimate" step="100">
-            <output for="rentEstimate" id="rentEstimator">1500</output>
+            <input type="text" placeholder="$$ per Month">
             </div>
           </div>  
-           <hr>
+           <hr data-id="first">
             <div> 
              <input name="housing" type="radio" id="needsHouse" value="needsHouse">
              <label for="needsHouse" class="longLabel">I don't have a spot yet. I'll need to find local housing</label>
@@ -108,18 +109,19 @@
               
               <h3>How much personal space do you need?</h3>
               <div>
-                <input name="space" type="radio"><label> I'd prefer my own apartment</label>
+                <input id="own" name="space" type="radio"><label for="own"> I'd prefer my own apartment</label>
                 <br>
-                <input name="space"type="radio"><label>I can share with roommates</label>
+                <input id="share"name="space"type="radio"><label for="share">I can share with roommates</label>
                 <br>
-                <input name="space" type="radio"><label>I'd sleep on a couch</label>
+                <input id="couch" name="space" type="radio"><label for="couch">I'd sleep on a couch</label>
               </div>
             </div>
           <button id="housingButton" class="qButt">Next</button>
 
           </form>
+          <i class="fa fa-arrow-circle-left fa-2x"></i>
           <i class="fa fa-home fa-5x"></i>
-          <h2>$$ Flash</h2>
+          
         </div>
       </div>
   <!-- ************THIRD QUESTION BOX ***********-->
@@ -128,21 +130,30 @@
           <h1>Transportation Situation</h1>
           <form>
             <div>
-              <input type="radio">
-              <label for="car">I'm bringing a car</label>
+              <input id="car" name="commute" type="radio">
+              <label for="car">I'll commute by car</label>
             </div>
             
             <div>
-              <input type="radio">
+              <input id="parkDaily" name="parking"type="radio">
+              <label for="parkDaily" class="parking">I'll park it daily</label>
+            </div>
+            <div>
+              <input id="parkMonthly" name="parking" type="radio">
+              <label class="longLabel parking" for="parkMonthly">I'll buy a monthly parking spot near galvanize</label>
+            </div>
+            <hr>
+            <div>
+              <input id="publicTransit"name="commute" type="radio">
               <label for="publicTransit">I'm down for public transit</label>
             </div>
 
           <button id="transportButton" class="qButt">Next</button>
           </form>  
             
-
+          <i class="fa fa-arrow-circle-left fa-2x"></i>
           <i class="fa fa-car fa-5x"></i>
-          <h2>$$ Flash</h2>
+          
         </div>
       </div>
   <!-- ************FOURTH QUESTION BOX **********--> 
@@ -166,8 +177,7 @@
             <div>
               <input name="foodMoney" type="radio" id="bogus">
               <label for="bogus">All these options are bogus. My Budget is: </label>
-              <input type="range" min="0" max="400" value="100" id="foodEstimate" step="25">
-              <output for="foodEstimate" id="foodEstimator">100</output>
+              <input type="text" placeholder="$$ per Week">
             </div>
 
 
@@ -175,8 +185,11 @@
           </form>  
             
 
+          <i class="fa fa-arrow-circle-left fa-2x"></i>
           <i class="fa fa-cutlery fa-5x"></i>
-          <h2>$$ Flash</h2>
+
+          
+
         </div>
       </div>
   <!-- ************FIFTH QUESTION BOX ***********-->  
@@ -185,27 +198,27 @@
           <h1>Funny Money</h1>
           <form>
           <div>
-            <input type="radio">
-            <label class="longLabel">I will not be having any fun for the next six months <strong>($0/week)</strong></label>
+            <input id="noFun" name="funnyMoney" type="radio">
+            <label for="noFun" class="longLabel">I will not be having any fun for the next six months <strong>($0/week)</strong></label>
           </div>
           
           <div>
-            <input type="radio">
-            <label class="longLabel">I'll be making $75-$90k soon, let's start spending now! <strong>($150/week)</strong></label>
+            <input id="tonsFun" name="funnyMoney" type="radio">
+            <label for="tonsFun"class="longLabel">I'll be making $75-$90k soon, let's start spending now! <strong>($150/week)</strong></label>
           </div>
           <br>
           <div>
-            <input type="radio">
-            <label>None of the above. My recreation budget is:</label> 
-            <input type="text" placeholder="$$ per WEEK">
+            <input id="customFun" name="funnyMoney" type="radio">
+            <label for="customFun">None of the above. My recreation budget is:</label> 
+            <input id="customFunAmount" type="text" placeholder="$$ per WEEK">
           </div>
            
           <button id="funButton" class="qButt">Next</button>  
           </form>  
             
-
+          <i class="fa fa-arrow-circle-left fa-2x"></i>
           <i class="fa fa-hand-spock-o fa-5x"></i>
-          <h2>$$ Flash</h2>
+          
         </div>
       </div>
   <!-- ************SIXTH QUESTION BOX ***********-->
@@ -224,8 +237,9 @@
           </div>
 
           <button id="otherButton" class="qButt">Next</button>  
-          </form>  
-            
+          </form> 
+
+          <i class="fa fa-arrow-circle-left fa-2x"></i>  
           <i class="fa fa-money fa-5x"></i>
         </div>
       </div>
@@ -233,16 +247,17 @@
     </div>
     
  <!-- ************Evil Answer BOX ***********-->
-    <div class="drEvil questionBox" hidden >
+    <div class="drEvil questionBox" >
      <iframe src="https://media.giphy.com/media/C4JpnmCDUzhIc/giphy.gif" width="450" height="200" frameBorder="0" borderRadius="10%" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/evil-mike-myers-dr-C4JpnmCDUzhIc">Dr. Evil comes to us via GIPHY</a></p>
-     <h1>ONE MILLION DOLLARS</h1>
+     <h1>IT'LL COST YOU <br> ONE MILLION DOLLARS</h1>
+     <hr>
        <button id="evilButton" class="qButt">Just Kidding</button>
      </div>
-
+     <i class="fa fa-arrow-circle-left fa-2x"></i> 
   </div>
 
  <!-- ************Galvanize Promo Moment ***********-->
-  <div class="questionBox"hidden>
+  <div class="questionBox">
      <div id="promoBox" class="formQuestion">
      <h1>In All Seriousness</h1>
      <p>The total we may show you will shock you. 
@@ -253,6 +268,7 @@
     <form>
        <button id="promoButton" class="qButt">On to My Results!</button>
     </form>
+    <i class="fa fa-arrow-circle-left fa-2x"></i>
     <i class="fa fa-fire-extinguisher fa-5x"></i> 
     </div>
 
@@ -265,7 +281,7 @@
 
 <!-- ************Answer BOX ***********-->
 
-      <div class="questionBox" hidden>
+      <div class="questionBox">
         <div id="resultsBox" class="formQuestion">
           <h1>The Results are IN</h1>
           
@@ -285,38 +301,62 @@
 
           <button id="finalButton" class="qButt">Want to adjust your expenses?</button> 
           </form>  
-            
+          <i class="fa fa-arrow-circle-left fa-2x"></i>  
           <i class="fa fa-money fa-5x"></i>
         </div>
       </div>
 
 <!-- ************Numbers BOX ***********-->
 
-      <div class="questionBox" hidden>
+      <div class="questionBox">
         <div id="numbersBox" class="formQuestion">
           <h1>Adjust the Numbers</h1>
           <p></p>
           <form>
           <div>
             <label>Housing</label>
-            <input class="numbersBoxInputs" type="text">
+            <input type="range" min="0" max="4000" value="1500" id="rentEstimate" step="100">
+            <output for="rentEstimate" id="rentEstimator">$1500</output>
+            <label>(monthly)</label>
           </div>
           <div>
             <label>Transportation</label>
-            <input class="numbersBoxInputs" type="text">
+            <input type="range" min="0" max="4000" value="1500" id="travelEstimate" step="100">
+            <output for="travelEstimate" id="travelEstimator">$1500</output>
+            <label>(weekly)</label>
           </div>
           <div>
             <label>Food</label>
-            <input class="numbersBoxInputs" type="text">
+             <input type="range" min="0" max="400" value="100" id="foodEstimate" step="25">
+            <output for="foodEstimate" id="foodEstimator">$100</output>
+            <label>(weekly)</label>
           </div>
           <div>
             <label>Fun</label>
-            <input class="numbersBoxInputs" type="text">
+             <input type="range" min="0" max="400" value="100" id="funEstimate" step="25">
+              <output for="funEstimate" id="funEstimator">$100</output>
+              <label>(weekly)</label>
           </div>
           <div>
-            <label>Other</label>
-            <input class="numbersBoxInputs" type="text">
+            <label>Additional Expenses</label>
+            <input type="range" min="0" max="4000" value="1500" id="otherEstimate" step="100">
+            <output for="otherEstimate" id="otherEstimator">$1500</output>
+            <label>(monthly)</label>
           </div>
+          <div>
+            <label>Special Occasion</label>
+            <input type="range" min="0" max="4000" value="1500" id="specialEstimate" step="100">
+            <output for="specialEstimate" id="specialEstimator">$1500</output>
+            <label>(total)</label>
+          </div>
+  
+          <div>
+            <label>Loan Amount</label>
+            <input type="range" min="0" max="21000" value="5000" id="loanEstimate" step="500">
+            <output for="loanEstimate" id="loanEstimator">$1500</output>
+            
+          </div>
+
           <div>
             <label><strong>Total</strong></label>
             <input class="numbersBoxInputs" type="text">
@@ -324,7 +364,7 @@
 
           <button id="finalButton" class="qButt">Click here to start over</button> 
           </form>  
-            
+          <i class="fa fa-arrow-circle-left fa-2x"></i>  
           <i class="fa fa-thumbs-up fa-5x"></i>
         </div>
       </div>

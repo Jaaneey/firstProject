@@ -26,7 +26,7 @@ function runPage(pageNumber){
  function sliderValue(inputId, outputId){
  $(inputId).on("change", function(){
     var chosenVal = $(this).val();
-    $(outputId).text(chosenVal);
+    $(outputId).text("$"+chosenVal);
  });
 }
 
@@ -60,9 +60,6 @@ user= new Person();
 
 //page1: HOUSING
 
-function runPage2(){
-sliderValue("#rentEstimate","#rentEstimator");
-
 $('input[name=housing]#hasHouse').on('click',function(){
   $('#rentQuestion').fadeIn("slow");
   $("#wantsHouse").fadeOut("slow");
@@ -70,18 +67,24 @@ $('input[name=housing]#hasHouse').on('click',function(){
 
 $('input[name=housing]#needsHouse').on('click', function(){
     $("#rentQuestion").fadeOut("slow",function(){
+    $("[data-id=first").fadeOut();
     $("#wantsHouse").fadeIn();
     });
   });
 
 $('label[for=inCity').text("I want to be in the city of "+ user.city);
-}
+
 
 //page 2 Transport
-//page 3 Food
-sliderValue("#foodEstimate", "#foodEstimator");
-user.food =$("input[name=foodMoney]:checked").val();
 
+//Adjuster Page
+sliderValue("#foodEstimate", "#foodEstimator");
+sliderValue("#funEstimate", "#funEstimator");
+sliderValue("#rentEstimate","#rentEstimator");
+sliderValue("#otherEstimate","#otherEstimator");
+sliderValue("#travelEstimate", "#travelEstimator");
+sliderValue("#specialEstimate","#specialEstimator");
+sliderValue("#loanEstimate", "#loanEstimator");
 
 
 $.each(arrayOfButtons, function(index, button){
@@ -111,7 +114,7 @@ function saveData(){
   user.email = $("#userEmail").val();
   user.housing = $('#rentEstimator').val();
   // user.transport= transport;
-  // user.food= food;
+  user.food = $("input[name='foodMoney']:checked").attr("value");
   // user.fun = fun;
   // user.additional = additional;
   // user.special = special;

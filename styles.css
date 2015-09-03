@@ -67,8 +67,19 @@ hr {
 
 .fa {
   color: #fff;
+  margin-bottom: 5px
 }
 
+.fa-arrow-circle-left{
+  position:relative;
+  right: 160px;
+}
+
+.fa-5x {
+  position:relative;
+  right: 17.5px;
+
+}
 
 /*Elements for the Tool */
 
@@ -131,8 +142,14 @@ form {
   margin-bottom: 30px;
   width: 100px;
   position: relative;
+}
+
+.qButt:not(#evilButton) {
   left: 150px;
 }
+
+
+
 
 .bButt {
   width: 200px;
@@ -179,6 +196,17 @@ input[type=text]:not(#userName):not(#userEmail):not(.numbersBoxInputs){
 
 /* Specific Fixes */
 
+input[name=parking]{
+  position:relative;
+  left: 50px;
+}
+
+label.parking {
+  position:relative;
+  left: 50px;
+} 
+
+
 select {
   position: relative;
   left: 140px;
@@ -211,6 +239,10 @@ select {
   margin-top: -4px;
 }
 
+.fa-graduation-cap {
+  position:relative;
+  left:2.5px;
+}
 
 /* Dr. Evil */
 
@@ -246,5 +278,6 @@ div .drEvil  {
   top: 80px;
   left:525px;
 }
+
 
 

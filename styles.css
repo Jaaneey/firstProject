@@ -202,6 +202,10 @@ hr:not(.drEvil){
   border: 2px dashed #333;
 }
 
+.drEvil hr  {
+  border: 2px white solid;
+}
+
 #introText hr {
   border: 1px solid gray;
 }
@@ -262,6 +266,9 @@ select {
   margin: 0 auto;
 }
 
+.centerMe {
+  margin-left: 125px;
+}
 /* Dr. Evil */
 
 div .drEvil  {

@@ -11,11 +11,11 @@
 <nav>
   <img src="http://www.galvanize.com/wp-content/themes/galvanize/img/galvanize-logo.svg" alt="galvanize logo">
   <ul>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Education</a></li>
-    <li><a href="#">Campuses</a></li>
-    <li><a href="#">Venture</a></li>
-    <li><a href="#">Blog</a></li>
+    <li><a href="http://www.galvanize.com/about/">About</a></li>
+    <li><a href="http://www.galvanize.com/#">Education</a></li>
+    <li><a href="http://www.galvanize.com/#">Campuses</a></li>
+    <li><a href="http://www.galvanize.com/venture/">Venture</a></li>
+    <li><a href="http://www.galvanize.com/blog/">Blog</a></li>
   </ul>
 </nav>
 <img class="backgroundImage" src="http://lorempixel.com/g/1200/400/abstract/" alt="dummytext">
@@ -88,8 +88,8 @@
             </div>
     
             <div id="rentQuestion" hidden>
-             <label for="rentEstimate">What's your monthly rent expense (rent+utilities)?</label>
-            <input type="text" placeholder="$$ per Month">
+             <label for="rentGuess">What's your monthly rent expense (rent+utilities)?</label>
+            <input id="rentGuess" type="text" placeholder="$$ per Month">
             </div>
           </div>  
            <hr data-id="first">
@@ -178,8 +178,8 @@
             <br>
             <div>
               <input name="foodMoney" type="radio" id="bogus">
-              <label for="bogus">All these options are bogus. My Budget is: </label>
-              <input type="text" placeholder="$$ per Week">
+              <label for="foodGuess">All these options are bogus. My Budget is: </label>
+              <input id="foodGuess" type="text" placeholder="$$ per Week">
             </div>
 
 
@@ -231,11 +231,11 @@
           <form>
           <div>
             <label for="additionalCash">Any additional expenses you'll need to cover?</label>
-            <input type="text" placeholder="$$ per MONTH">
+            <input id="additionalCash" type="text" placeholder="$$ per MONTH">
           </div>
           <div class="extras">
             <label for="extras">Any one-time special occasion expenses?</label>
-            <input type="text" placeholder="$$ Total for whole program">
+            <input id="extras"type="text" placeholder="$$ Total for whole program">
           </div>
 
           <button id="otherButton" class="qButt">Next</button>  
@@ -284,23 +284,25 @@
 
 <!-- ************Answer BOX ***********-->
 
-      <div class="questionBox" hidden>
+      <div class="questionBox" >
         <div id="resultsBox" class="formQuestion">
           <h1>The Results are IN</h1>
           
           <form>
           <div>
-            <label>Here is the total amount based on your input:</label>
-            <input type="text" placeholder="$$ total cost">
+            <label >Here is the total amount based on your input:<br>(not including tuition)</label>
+            <input type="text" placeholder="$$ Total Expenses">
           </div>
           <div>
-            <label>If you're planning to offset the cost with loans<br> enter them here:</label><br>
-            <input type="text" placeholder="Subtract Loan Amount">
+            <label for="loanAmount">If you're planning to offset the cost with loans<br> enter them here:</label><br>
+            <input id="loanAmount" type="text" placeholder="Subtract Loan Amount">
           </div>
+          <br>
           <div>
-           <label for="grandTotal"><strong>Your Grand Total:</strong><br> $$ You'll need to make it through the program:</label><br>
-            <input type="text">
+            <label class="centerMe" for="grandTotal"><strong>Your Grand Total:</strong></label><br>
+            <input id="grandTotal" type="text">
           </div>
+          <p class="centerMe">(Expenses + Tuition)</p>
 
           <button id="finalButton" class="qButt">Want to adjust your expenses?</button> 
           </form>  
@@ -372,7 +374,7 @@
         </div>
       </div>
 <!-- ************Back to Galvanize Button ***-->
-      <button id="backButton" class="bButt">Click here head back to Galvanize</button> 
+      <a href="http://www.galvanize.com/#"><button id="backButton" class="bButt">Click here head back to Galvanize</button></a>
 
   </div>
 </div>

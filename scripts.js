@@ -1,23 +1,12 @@
-var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost;
+var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost, userHousing, userFood, userFun, userTransport;
 
 //Write these functions:
 function reset(){
   console.log("let's put things back");
 }
 
-function runPage(pageNumber){
-  switch(pageNumber){
-    case 0:
-      programQuestion();
-      break;
-    case 1:
-      housingQuestion();
-      break;
-  }
 
-}
-
- function sliderFunction(inputId, outputId){
+function sliderFunction(inputId, outputId){
  $(inputId).on("change", function(){
     var chosenVal = $(this).val();
     $(outputId).text("$"+chosenVal);
@@ -55,16 +44,28 @@ function Person(name, email, city, course, tuition, housing, transport,food, fun
 
 }
 
+function runPage(pageNumber){
+  switch(pageNumber){
+    case 0:
+      housingPageSetUp();
+      break;
+    case 1:
+      housingVariable();
+      break;
+  }
+
+}
+
 function saveData(){
   user.course = $("#programType").val() || "not yet selected";
   user.city = $("#locationProgram").val()|| "not yet selected";
   user.name = $("#userName").val() || "not yet selected"; 
   user.email = $("#userEmail").val() || "not yet selected";
   user.tuition= tuitionCost;
-  user.housing = parseInt($('#rentGuess').val(),10)|| 0;
-  user.transport= 0;
-  user.food = parseInt($("#foodGuess").val(),10) || 0;
-  user.fun = parseInt($("#customFunAmount").val(),10)|| 0;
+  user.housing = userHousing || 0;
+  user.transport = userTransport || 0;
+  user.food  = userFood|| 0;
+  user.fun  = userFun || 0;
   user.additional = parseInt($("#additionalCash").val(),10) || 0;
   user.special = parseInt($("#extras").val(),10) || 0;
   user.firstTotal = (user.housing*programLengthM) + user.transport + (user.food*programLengthW) + (user.fun*programLengthW) + (user.additional*programLengthM) + user.special;
@@ -92,11 +93,16 @@ user= new Person();
 saveData();
  
 
+
+// = parseInt($("#foodGuess").val(),10) || 0;
+// = parseInt($("#customFunAmount").val(),10)|| 0;
+
+
 //page0: INTRO
 
-
-
 //page1: HOUSING
+
+function housingPageSetUp(){
 
 $('input[name=housing]#hasHouse').on('click',function(){
   $('#rentQuestion').fadeIn("slow");
@@ -111,7 +117,48 @@ $('input[name=housing]#needsHouse').on('click', function(){
   });
 
 $('label[for=inCity').text("I want to be in the city of "+ user.city);
+}
 
+//Assigning Values: 
+
+function housingVariable(){
+  if ($("#hasHouse").is(":checked")){
+  userHousing = parseInt($('#rentGuess').val(),10);
+} else {
+    if ($("#inCity").is(":checked")){
+      if ($("#own").is(":checked")){
+        userHousing = "CityOwn";
+      }
+      else if ($("#share").is(":checked")){
+        userHousing = "CityShare";
+      }
+      else if($("#couch").is(":checked")){
+        userHousing ="cityCouch";
+      } else {console.log("average");}
+    }
+    else {
+      if ($("#own").is(":checked")){
+        userHousing = "outsideOwn";
+      }
+      else if ($("#share").is(":checked")){
+        userHousing = "outsideShare";
+      }
+      else if($("#couch").is(":checked")){
+        userHousing = "outsideCouch";
+      } else {console.log("average");}
+    }
+}
+}
+
+
+
+
+
+
+
+//if ($("#hasHouse").is(":checked")){
+//  userHousing = parseInt($('#rentGuess').val(),10);
+//}
 
 //page 2 Transport
 
@@ -139,6 +186,7 @@ $.each(arrayOfButtons, function(index, button){
       $(button).on("click", function(event){
         event.preventDefault();
         /////WORK ON THIS FUNCTION///
+        runPage(index);
         saveData();
         arrayOfBoxes.eq(index).fadeOut("slow", function(){
 

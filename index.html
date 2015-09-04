@@ -76,7 +76,7 @@
       </div>
 
  <!-- *************SECOND QUESTION BOX **********-->
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="housingQuestion" class="formQuestion">
           <h1>The Housing Dilemma</h1>
           
@@ -127,12 +127,12 @@
         </div>
       </div>
   <!-- ************THIRD QUESTION BOX ***********-->
-      <div class="questionBox" >
+      <div class="questionBox" hidden>
         <div id="transportQuestion" class="formQuestion">
           <h1>Transportation Situation</h1>
           <form>
             <div>
-              <input id="car" name="commute" type="radio">
+              <input id="car" name="commute" type="radio" disabled>
               <label for="car">I'll commute by car</label>
             </div>
             
@@ -146,7 +146,9 @@
             </div>
             <hr>
             <div>
-              <input id="publicTransit"name="commute" type="radio">
+              <input id="publicTransit"name="commute" type="radio"
+              disabled
+              >
               <label for="publicTransit">I'm down for public transit</label>
             </div>
 
@@ -159,7 +161,7 @@
         </div>
       </div>
   <!-- ************FOURTH QUESTION BOX **********--> 
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="foodQuestion" class="formQuestion">
           <h1>Food Budget</h1>
           <form>
@@ -195,7 +197,7 @@
         </div>
       </div>
   <!-- ************FIFTH QUESTION BOX ***********-->  
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="funQuestion" class="formQuestion">
           <h1>Funny Money</h1>
           <form>
@@ -224,7 +226,7 @@
         </div>
       </div>
   <!-- ************SIXTH QUESTION BOX ***********-->
-      <div class="questionBox">
+      <div class="questionBox" hidden>
         <div id="otherQuestion" class="formQuestion">
           <h1>Additional Expenses</h1>
           <p>We all have them. Take a moment to think about it. Health Insurance? Cell phone bill? Student loan payments?</p>
@@ -284,7 +286,7 @@
 
 <!-- ************Answer BOX ***********-->
 
-      <div class="questionBox" >
+      <div class="questionBox" hidden>
         <div id="resultsBox" class="formQuestion">
           <h1>The Results are IN</h1>
           
@@ -313,7 +315,7 @@
 
 <!-- ************Numbers BOX ***********-->
 
-      <div class="questionBox" >
+      <div class="questionBox" hidden>
         <div id="numbersBox" class="formQuestion">
           <h1>Adjust the Numbers</h1>
           <p></p>

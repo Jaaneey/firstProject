@@ -5,6 +5,21 @@ var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLen
 
 function reset(){
   console.log("let's put things back");
+  currentIndex = 0;
+  user.course = "not yet selected";
+  user.city = "not yet selected";
+  user.name = "not yet selected"; 
+  user.email = "not yet selected";
+  user.tuition= tuitionCost;
+  user.housing =  0;
+  user.transport =  0;
+  user.food  =  0;
+  user.fun  =  0;
+  user.additional = 0;
+  user.special = 0;
+  user.firstTotal = 0;
+  user.loan = 0;
+  user.grandTotal = 0;
 }
 
 function sliderFunction(inputId, outputId){
@@ -125,8 +140,45 @@ $('input[name=housing]#needsHouse').on('click', function(){
     });
   });
 
-$('label[for=inCity').text("I want to be in the city of "+ user.city);
+$('label[for=inCity]').text("I want to be in the city of "+ user.city+".");
 }
+
+//Determining Rent
+function cityRent(cityName){
+  switch(cityName){
+    // Average for Studio acording to Rent Jungle
+    case "Denver":
+      userHousing= 1200;
+      //roommates ~1/2
+      //cheap ~1/4
+    break;
+    case "San Francisco":
+      userHousing = 3000;
+      //roommates ~ 2/3
+      //cheap ~ 1/4
+    break;
+    case "Boulder":
+      userHousing = 1200;
+      //roommates ~3/4
+      //cheap ~1/2
+    break;
+    case "Fort Collins":
+      userHousing = 1000;
+      //roommates ~3/4
+      //cheap 1/2
+    break;
+    case "Seattle":
+      userHousing = 1300;
+      //roommates~3/4
+      //cheap 1/4
+    break;
+    default:
+      console.log("how did this happen?");
+  }
+
+}
+
+
 
 //Assigning Values: 
 
@@ -134,26 +186,27 @@ function housingVariable(){
   if ($("#hasHouse").is(":checked")){
   userHousing = parseInt($('#rentGuess').val(),10);
 } else {
+    cityRent(user.city);
     if ($("#inCity").is(":checked")){
       if ($("#own").is(":checked")){
-        userHousing = "CityOwn";
+        userHousing = userHousing;
       }
       else if ($("#share").is(":checked")){
-        userHousing = "CityShare";
+        userHousing = (0.6 * userHousing);
       }
       else if($("#couch").is(":checked")){
-        userHousing ="cityCouch";
+        userHousing =(0.3 * userHousing);
       } else {console.log("average");}
     }
     else {
       if ($("#own").is(":checked")){
-        userHousing = "outsideOwn";
+        userHousing = (0.85 * userHousing);
       }
       else if ($("#share").is(":checked")){
-        userHousing = "outsideShare";
+        userHousing = (0.6 * userHousing);
       }
       else if($("#couch").is(":checked")){
-        userHousing = "outsideCouch";
+        userHousing = (0.3 * userHousing);
       } else {console.log("average");}
     }
 }
@@ -245,7 +298,7 @@ function adjusterTotal(){
       adjustedTotal += parseInt($(element).text().split("$")[1])* 26;
     }
   });
-  $("#adjustedTotal").val("$" + adjustedTotal);
+  $("#adjustedTotal").val("$" + (adjustedTotal + tuitionCost) );
 
 }
 
@@ -289,7 +342,7 @@ function nextPage(index){
            arrayOfBoxes.eq(index+1).fadeIn();
            currentIndex ++;
             } 
-          else {
+          else if (currentIndex === 9) {
            arrayOfBoxes.eq(0).fadeIn();
            reset();
           }
@@ -325,15 +378,17 @@ $.each(arrayOfArrows, function(index,arrow){
 });
   });
 
-$(document).on("keyup", function(e){
-  if (e.keyCode == 39){
-    nextPage(currentIndex);
-   } 
-  else if (e.keyCode == 37) {
-    backPage(currentIndex-1);
-  }
+//(Arrow Navigation)
+// $(document).on("keyup", function(e){
+//   e.preventDefault();
+//   if (e.keyCode == 39){
+//     nextPage(currentIndex);
+//    } 
+//   else if (e.keyCode == 37) {
+//     backPage(currentIndex-1);
+//   }
 
-});
+// });
 
 
 }); //document on ready

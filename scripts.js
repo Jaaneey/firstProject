@@ -1,4 +1,4 @@
-var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost, userHousing, userFood, userFun, userTransport;
+var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost, userHousing, userFood, userFun, userTransport, userLoanAmount;
 
 
 //Write these functions:
@@ -13,7 +13,6 @@ function sliderFunction(inputId, outputId){
     $(outputId).text("$"+chosenVal);
  });
 }
-
 
 function sliderValue(inputId, outputId, amount){
   $(inputId).attr("value", amount);
@@ -69,6 +68,7 @@ function runPage(pageNumber){
       break;
     case 7: // Promo Page
       resultsSetup();
+      resultsAdjust();
       break;
     case 8: // Results
       adjusterSetUp();
@@ -92,7 +92,7 @@ function saveData(){
   user.additional = parseInt($("#additionalCash").val(),10) || 0;
   user.special = parseInt($("#extras").val(),10) || 0;
   user.firstTotal = (user.housing*programLengthM) + user.transport + (user.food*programLengthW) + (user.fun*programLengthW) + (user.additional*programLengthM) + user.special;
-  user.loan = parseInt($("#loanAmount").val(),10) || 0;
+  user.loan = userLoanAmount || 0;
   user.grandTotal = tuitionCost + user.firstTotal - user.loan;
 
 }
@@ -209,9 +209,15 @@ function funVariable(){
 
 // Results Page
 function resultsSetup() {
-$("#totalExpenses").val("$" + user.firstTotal);
-$("#grandTotal").val("$" + user.grandTotal);
+  userLoanAmount = parseInt($("#loanAmount").val(),10) || 0;
+  $("#totalExpenses").val("$" + user.firstTotal);
+  $("#grandTotal").val("$" + (user.grandTotal- userLoanAmount));
 }
+
+function resultsAdjust(){
+  $("#loanAmount").on("keyup", resultsSetup);
+}
+
 //LAST PAGE Adjuster Page
 
 var $allOutputs = $("#numbersBox output");

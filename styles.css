@@ -192,7 +192,7 @@ input[type=text] {
   -webkit-appearance: none;
 }
 
-input[type=text]:not(#userName):not(#userEmail):not(.numbersBoxInputs){
+input[type=text]:not(#userName):not(#userEmail){
   position:relative;
   left: 75px;
   margin-top: 15px;
@@ -259,20 +259,27 @@ select {
 }
 
 .numbersBoxInputs {
-  position: absolute;
-  margin-left: 175px;
-  margin-top: -4px;
+  position: relative;  
+  margin-top: 50px;
 }
+
+label[for=adjustedTotal]{
+  position: relative;
+  left: 145px;
+  
+} 
 
 .fa-graduation-cap {
   position:relative;
   left:2.5px;
 }
 
-
-
 .centerMe {
   margin-left: 125px;
+}
+
+output {
+  font-size: 1.5em;
 }
 /* Dr. Evil */
 
@@ -313,14 +320,14 @@ div .drEvil  {
 
 input[type=range] {
   -webkit-appearance: none;
-  width: 100%;
+  width: 425px;
   margin: 22.8px 0;
 }
 input[type=range]:focus {
   outline: none;
 }
 input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
+  width: 425px;
   height: 4.4px;
   cursor: pointer;
   box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
@@ -343,7 +350,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   background: #ffffff;
 }
 input[type=range]::-moz-range-track {
-  width: 100%;
+  width: 425px;
   height: 4.4px;
   cursor: pointer;
   box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
@@ -361,7 +368,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 input[type=range]::-ms-track {
-  width: 100%;
+  width: 425px;
   height: 4.4px;
   cursor: pointer;
   background: transparent;
@@ -399,7 +406,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 input[type=range] {
   -webkit-appearance: none;
-  width: 100%;
+  width: 425px;
   margin: 22.8px 0;
 }
 input[type=range]:focus {

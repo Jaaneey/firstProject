@@ -1,4 +1,4 @@
-var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost, userHousing, userFood, userFun, userTransport, userLoanAmount;
+var arrayOfButtons, arrayOfArrows, arrayOfBoxes, arrayOfInputs, user, programLength, tuitionCost, userHousing, userFood, userFun, userTransport, userLoanAmount, currentIndex;
 
 
 //Write these functions:
@@ -98,7 +98,7 @@ function saveData(){
 }
 
 //STARTING OUT
-
+currentIndex = 0;
 arrayOfButtons = $(".qButt");
 arrayOfArrows = $(".fa-2x");
 arrayOfBoxes = $(".questionBox");
@@ -273,11 +273,12 @@ function adjusterSetUp(){
 
 }
 
+
+
+
 //ON TO NEXT PAGE
-$.each(arrayOfButtons, function(index, button){
-      $(button).on("click", function(event){
-        event.preventDefault();
-        /////WORK ON THIS FUNCTION///
+
+function nextPage(index){      
         saveData();
         runPage(index);
         
@@ -286,34 +287,53 @@ $.each(arrayOfButtons, function(index, button){
 
           if(index !== 9){
            arrayOfBoxes.eq(index+1).fadeIn();
+           currentIndex ++;
             } 
           else {
            arrayOfBoxes.eq(0).fadeIn();
            reset();
-            }
+          }
         });
 
-});
+      } // end of nextPage()
+
+
 
 //BACK TO PREVIOUS PAGE
+
+function backPage(index){  
+   arrayOfBoxes.eq(index+1).fadeOut("slow", function(){
+   arrayOfBoxes.eq(index).fadeIn();
+   currentIndex --;
+});
+    
+}
+
+//Event Listeners
+//(Next Buttons)
+$.each(arrayOfButtons, function(index, button){
+  $(button).on("click", function(event){
+      event.preventDefault();
+      nextPage(index);
+});
+});
+
+//(Back Buttons)
 $.each(arrayOfArrows, function(index,arrow){
-    $(arrow).on("click", function(event){
-        /////WORK ON THIS FUNCTION///
-        //saveData();
-        arrayOfBoxes.eq(index+1).fadeOut("slow", function(){
-           arrayOfBoxes.eq(index).fadeIn();
-        });
+  $(arrow).on("click", function(event){
+      backPage(index);
+});
+  });
+
+$(document).on("keyup", function(e){
+  if (e.keyCode == 39){
+    nextPage(currentIndex);
+   } 
+  else if (e.keyCode == 37) {
+    backPage(currentIndex-1);
+  }
+
 });
 
 
-
-
-
-
-
-
-
-
-});
-});
-});
+}); //document on ready
